@@ -28,10 +28,10 @@ public class CrudVeterinarios extends Conexion {
             
         }
     }
-    public void asignarRevisiones (Veterinarios veterinario){
+    public void asignarRevisiones (Revisiones revision){
         try{
             conexionbd();
-            String asignar ="select *from veterinarios";
+            String asignar ="call asignarRevisiones ('"+revision.getId()+"', '"+revision.getDescripcion()+"', '"+revision.getFechaIngreso()+"', '"+revision.getFechaSalida()+"', '"+revision.getTratamiento()+"', '"+revision.getObservaciones()+"', '"+revision.getEstatus()+"', '"+revision.getIdAnimal()+"', '"+revision.getConcentrado()+"', '"+revision.getIdVeterinario()+"');";
             sentencia.execute(asignar);
         }catch (Exception e){
             
