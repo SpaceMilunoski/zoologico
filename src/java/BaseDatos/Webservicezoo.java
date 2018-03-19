@@ -73,4 +73,23 @@ public class Webservicezoo {
         //TODO write your implementation code here:
         return null;
     }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "Prestados")
+    public String Prestados(@WebParam(name = "jPrestados") String jPrestados) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "Permanentes")
+    public String Permanentes(@WebParam(name = "jPermanentes") String jPermanentes) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
 }
