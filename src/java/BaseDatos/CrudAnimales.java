@@ -29,4 +29,14 @@ public class CrudAnimales extends Conexion{
             
         }
    }
+   
+   public void asignarHabitad(Animales animal){
+       try{
+           conexionbd();
+           String asignar ="call asignarHabitad ('"+animal.getId()+"', '"+animal.getIDHabitad()+"');";
+           sentencia.execute(asignar);
+       }catch(Exception e){
+       
+       }
+   }
 }
