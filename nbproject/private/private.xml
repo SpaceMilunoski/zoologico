@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/daniel/NetBeansProjects/zoologico/web/index.html</file>
             <file>file:/home/daniel/NetBeansProjects/zoologico/src/java/BaseDatos/Webservicezoo.java</file>
             <file>file:/home/daniel/NetBeansProjects/zoologico/src/java/BaseDatos/Cuidadores.java</file>
@@ -10,6 +11,13 @@
             <file>file:/home/daniel/NetBeansProjects/zoologico/src/java/BaseDatos/crudHabitad.java</file>
             <file>file:/home/daniel/NetBeansProjects/zoologico/src/java/BaseDatos/Conexion.java</file>
             <file>file:/home/daniel/NetBeansProjects/zoologico/src/java/BaseDatos/CrudCuidadores.java</file>
+=======
+            <file>file:/C:/Users/PROPIETARIO/Documents/Sistemas%20cliente-servidor/Zoo/zoologico/src/java/BaseDatos/CrudAnimales.java</file>
+            <file>file:/C:/Users/PROPIETARIO/Documents/Sistemas%20cliente-servidor/Zoo/zoologico/src/java/BaseDatos/Webservicezoo.java</file>
+            <file>file:/C:/Users/PROPIETARIO/Documents/Sistemas%20cliente-servidor/Zoo/zoologico/src/java/BaseDatos/CrudCuidadores.java</file>
+            <file>file:/C:/Users/PROPIETARIO/Documents/Sistemas%20cliente-servidor/Zoo/zoologico/src/java/BaseDatos/Cuidadores.java</file>
+            <file>file:/C:/Users/PROPIETARIO/Documents/Sistemas%20cliente-servidor/Zoo/zoologico/src/java/BaseDatos/Animales.java</file>
+>>>>>>> 2453b98ae7c04e0ef86f765b9234b796c6b6197d
         </group>
     </open-files>
 </project-private>
