@@ -10,5 +10,8 @@ package BaseDatos;
  * @author daniel
  */
 public class crudPrestados_Permanentes {
+    public void insertarPrestados(){
+        
+    }
     
 }
