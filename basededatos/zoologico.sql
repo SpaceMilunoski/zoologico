@@ -37,7 +37,7 @@ CREATE TABLE `anim_permanente` (
 
 LOCK TABLES `anim_permanente` WRITE;
 /*!40000 ALTER TABLE `anim_permanente` DISABLE KEYS */;
-INSERT INTO `anim_permanente` VALUES ('1','1','2018-03-29','1');
+INSERT INTO `anim_permanente` VALUES ('1','1','2018-03-29','1'),('2',NULL,'2018-03-12','Sano');
 /*!40000 ALTER TABLE `anim_permanente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,6 +103,7 @@ CREATE TABLE `animales` (
 
 LOCK TABLES `animales` WRITE;
 /*!40000 ALTER TABLE `animales` DISABLE KEYS */;
+INSERT INTO `animales` VALUES (1,'1','1','1','1',1,1,'1','M','1','2','1');
 /*!40000 ALTER TABLE `animales` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,6 +134,7 @@ CREATE TABLE `cuida` (
 
 LOCK TABLES `cuida` WRITE;
 /*!40000 ALTER TABLE `cuida` DISABLE KEYS */;
+INSERT INTO `cuida` VALUES (1,'1',1,'Matutino','2018-03-12');
 /*!40000 ALTER TABLE `cuida` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,6 +163,7 @@ CREATE TABLE `cuidadores` (
 
 LOCK TABLES `cuidadores` WRITE;
 /*!40000 ALTER TABLE `cuidadores` DISABLE KEYS */;
+INSERT INTO `cuidadores` VALUES ('1','1','1','1','1','1','2018-03-11');
 /*!40000 ALTER TABLE `cuidadores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,4 +264,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-18 16:34:14
+-- Dump completed on 2018-03-20 23:51:31
