@@ -30,4 +30,10 @@ public class CrudCuidadores extends Conexion{
         }
         
     }
+    public void agregarCuida(Cuida cuida){
+        try {
+            String query ="call zoologico.cuidadorCuida("+cuida.Id+", '"+cuida.Id_cuidador+"', "+cuida.Id_animal+", '"+cuida.Turno+"', '"+cuida.Fecha+"');";
+        } catch (Exception e) {
+        }
+    }
 }
