@@ -15,13 +15,13 @@ public class animalesPermanentes {
     String Id;
     String Descripcion;
     String Fecha_add;
-    String estado;
+    String Estado;
 
     public animalesPermanentes(JsonObject permanentes) {
-        this.Id = Id;
-        this.Descripcion = Descripcion;
-        this.Fecha_add = Fecha_add;
-        this.estado = estado;
+        this.Id = permanentes.getString("Id");
+        this.Descripcion = permanentes.getString("Descripcion");
+        this.Fecha_add = permanentes.getString("Fecha_add");
+        this.Estado = permanentes.getString("Estado");
     }
 
     public String getId() {
@@ -49,11 +49,11 @@ public class animalesPermanentes {
     }
 
     public String getEstado() {
-        return estado;
+        return Estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
     }
     
 }
