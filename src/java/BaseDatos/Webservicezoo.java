@@ -14,9 +14,11 @@ import java.io.StringReader;
 
 
 import java.lang.reflect.Type;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.json.Json;
+import com.google.gson.Gson;
 import javax.json.JsonObject;
 import javax.mail.Message;
 import jdk.nashorn.internal.parser.JSONParser;
@@ -154,6 +156,31 @@ public class Webservicezoo {
     public String eliminarCuida(@WebParam(name = "Id") String Id) {
         //TODO write your implementation code here:
         return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultaCuidadores")
+    public String consultaCuidadores() {
+        //TODO write your implementation code here:
+        ResultSet rsCuidadores;
+         ArrayList<Cuidadores> alCuidadores= new ArrayList<Cuidadores>();
+       try{
+            rsCuidadores = crud.Cuidadores();
+       
+        while(rsCuidadores.next()){
+            String cuidadorstring="{\"Id\":\""+rsCuidadores.getString("id")+"\",\"Nombre\":\""+rsCuidadores.getString("nombre")+"\",\"Apellidos\":\""+rsCuidadores.getString("apellidos")+"\",\"Nacionalidad\":\""+rsCuidadores.getString("nacionalidad")+"\",\"Telefono\":\""+rsCuidadores.getString("telefono")+"\",\"Estatus\":\""+rsCuidadores.getString("estatus")+"\",\"Fecha_ingreso\":\""+rsCuidadores.getString("fecha_ingreso")+"\"}";
+            JsonObject cuidadorjson =Json.createReader(new StringReader(cuidadorstring)).readObject();
+            alCuidadores.add(new Cuidadores(cuidadorjson));
+        }
+       }catch(Exception e){
+           
+       }
+       Gson gson = new Gson();
+       String formatoJSON = gson.toJson(alCuidadores);
+      
+      return formatoJSON;
     }
 
 }

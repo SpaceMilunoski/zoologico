@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package BaseDatos;
+import java.sql.ResultSet;
 import javax.json.*;
 /**
  *
@@ -35,5 +36,15 @@ public class CrudCuidadores extends Conexion{
             String query ="call zoologico.cuidadorCuida("+cuida.Id+", '"+cuida.Id_cuidador+"', "+cuida.Id_animal+", '"+cuida.Turno+"', '"+cuida.Fecha+"');";
         } catch (Exception e) {
         }
+    }
+    public ResultSet Cuidadores(){
+        conexionbd();
+       try{
+            String query = "select * from cuidadores;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
     }
 }
