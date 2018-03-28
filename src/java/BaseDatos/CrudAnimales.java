@@ -22,7 +22,6 @@ public class CrudAnimales extends Conexion{
         }
     }
     
-<<<<<<< HEAD
    public ResultSet Animales(){
         conexionbd();
        try{
@@ -33,18 +32,7 @@ public class CrudAnimales extends Conexion{
        }
         return resultado;
     }
-=======
-   public ResultSet Animales(){//CONSULTAR ANIMALES
-       conexionbd();
-       try{
-            String cosultar ="select *from animales;";
-            sentencia.execute(cosultar);
-        }catch(Exception e){
-            return resultado;
-        }
-       return resultado;
-   }
->>>>>>> 70a037c91f1c6176f51aaf31320fd2cb5c2482c7
+
    
    public void asignarHabitad(Animales animal){
        try{

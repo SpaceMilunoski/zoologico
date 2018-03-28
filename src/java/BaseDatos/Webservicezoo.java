@@ -174,7 +174,7 @@ public class Webservicezoo {
         String formatoJSON = gson.toJson(alHabitads);
         return formatoJSON;
     }
-<<<<<<< HEAD
+
 
     /**
      * Web service operation
@@ -212,6 +212,4 @@ public class Webservicezoo {
         return null;
     }
 
-=======
->>>>>>> 70a037c91f1c6176f51aaf31320fd2cb5c2482c7
 }
