@@ -174,4 +174,42 @@ public class Webservicezoo {
         String formatoJSON = gson.toJson(alHabitads);
         return formatoJSON;
     }
+
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarAnimales")
+    public String consultarAnimales() {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarRevisiones")
+    public String consultarRevisiones() {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarVeterinarios")
+    public String consultarVeterinarios() {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarCuidados")
+    public String consultarCuidados() {
+        //TODO write your implementation code here:
+        return null;
+    }
+
 }

@@ -5,6 +5,8 @@
  */
 package BaseDatos;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author daniel
@@ -20,14 +22,15 @@ public class CrudRevisiones extends Conexion{
         }
     }
     
-    public void mostrarRevisiones(Revisiones revision){
-        try{
-            conexionbd();
-            String consultar ="select * from revisiones;";
-            sentencia.execute(consultar);
-        }catch(Exception e){
-            
-        }
+    public ResultSet Revisiones(){
+        conexionbd();
+       try{
+            String query = "select * from revisiones;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
     }
     
     public void actualizarRevisiones(Revisiones revision){

@@ -5,6 +5,8 @@
  */
 package BaseDatos;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Miguel Angel
@@ -19,14 +21,15 @@ public class CrudVeterinarios extends Conexion {
             
         }
     }
-    public void consultarVeterinarios (Veterinarios veterinario){
-        try{
-            conexionbd();
-            String consultar ="select *from veterinarios";
-            sentencia.execute(consultar);
-        }catch (Exception e){
-            
-        }
+    public ResultSet Veterinarios(){
+        conexionbd();
+       try{
+            String query = "select * from animales;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
     }
     public void asignarRevisiones (Revisiones revision){
         try{

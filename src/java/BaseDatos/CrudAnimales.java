@@ -22,16 +22,17 @@ public class CrudAnimales extends Conexion{
         }
     }
     
-   public ResultSet Animales(){//CONSULTAR ANIMALES
-       conexionbd();
+   public ResultSet Animales(){
+        conexionbd();
        try{
-            String cosultar ="select *from animales;";
-            sentencia.execute(cosultar);
-        }catch(Exception e){
-            return resultado;
-        }
-       return resultado;
-   }
+            String query = "select * from animales;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
+    }
+
    
    public void asignarHabitad(Animales animal){
        try{
