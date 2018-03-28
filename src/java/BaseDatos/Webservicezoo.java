@@ -28,6 +28,8 @@ import jdk.nashorn.internal.parser.JSONParser;
 @WebService(serviceName = "Webservicezoo")
 public class Webservicezoo {
     //////////////////////////////////////////////////////////////////////////////////////////////
+    CrudVeterinarios crudv = new CrudVeterinarios();
+    
     CrudCuidadores crud = new CrudCuidadores();
     @WebMethod(operationName = "IngresarCuidadores")
     public String IngresarCuidadores(@WebParam(name = "jsonCuidadores") String jsonCuidadores) {        
@@ -199,8 +201,21 @@ public class Webservicezoo {
      */
     @WebMethod(operationName = "consultarVeterinarios")
     public String consultarVeterinarios() {
-        //TODO write your implementation code here:
-        return null;
+        ResultSet rsVeterinarios;
+        ArrayList<Veterinarios> alVeterinarios= new ArrayList<Veterinarios>();
+        try{
+            rsVeterinarios = crudv.Veterinarios();
+            while(rsVeterinarios.next()){
+                String veterinariostring="{\"Id\":\""+rsVeterinarios.getString("id")+"\",\"Nombre\":\""+rsVeterinarios.getString("nombre")+"\",\"Apellidos\":\""+rsVeterinarios.getString("apellidos")+"\",\"Especialidad\":\""+rsVeterinarios.getString("especialidad")+"\",\"Fecha de ingreso\":\""+rsVeterinarios.getString("f_ingreso")+"\",\"Salario\":\""+rsVeterinarios.getString("salario")+"\"}";
+                JsonObject veterinariojson =Json.createReader(new StringReader(veterinariostring)).readObject();
+                alVeterinarios.add(new Veterinarios(veterinariojson));
+            }
+        }catch(Exception e){
+           
+        }
+        Gson gson = new Gson();
+        String formatoJSON = gson.toJson(alCuidadores);
+        return formatoJSON;
     }
 
     /**
