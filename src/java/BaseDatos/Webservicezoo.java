@@ -183,4 +183,22 @@ public class Webservicezoo {
       return formatoJSON;
     }
 
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "agregarRevisiones")
+    public String agregarRevisiones(@WebParam(name = "revisionesj") String revisionesj) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "eliminarRevision")
+    public String eliminarRevision(@WebParam(name = "id") String id) {
+        //TODO write your implementation code here:
+        return null;
+    }
+
 }
