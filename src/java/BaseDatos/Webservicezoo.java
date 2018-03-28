@@ -275,4 +275,21 @@ public class Webservicezoo {
         return null;
     }
 
+    /**
+     * Web service operation
+     */
+    
+    @WebMethod(operationName = "agregarAnimales")
+    public String agregarAnimales(@WebParam(name = "jAnimales") String jAnimales) {
+        //TODO write your implementation code here:
+        JsonObject animalesj = Json.createReader(new StringReader(jAnimales)).readObject();
+        Animales animales = new Animales(animalesj);
+        
+        try {
+            cAnimales.insertarAnimales(animales);
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
 }
