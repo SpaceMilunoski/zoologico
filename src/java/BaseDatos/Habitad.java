@@ -16,13 +16,13 @@ public class Habitad {
     String Id;
     String Descripcion;
     String Clima;
-    Float Dimencion;
+    Float Dimension;
 
     public Habitad(JsonObject jHabitad) {
         this.Id =jHabitad.getString("Id");
         this.Descripcion=jHabitad.getString("Descripcion");
         this.Clima=jHabitad.getString("Clima");
-        this.Dimencion=Float.parseFloat(jHabitad.getString("Dimencion"));
+        this.Dimension=Float.parseFloat(jHabitad.getString("Dimension"));
         
     }
 
@@ -50,11 +50,11 @@ public class Habitad {
         this.Clima = Clima;
     }
 
-    public Float getDimencion() {
-        return Dimencion;
+    public Float getDimension() {
+        return Dimension;
     }
 
-    public void setDimencion(Float Dimencion) {
-        this.Dimencion = Dimencion;
+    public void setDimension(Float Dimension) {
+        this.Dimension = Dimension;
     }
 }

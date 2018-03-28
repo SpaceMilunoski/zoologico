@@ -70,12 +70,13 @@ public class Webservicezoo {
     /**
      * Web service operation
      */
+    crudHabitad cHabitad = new crudHabitad();
     @WebMethod(operationName = "agregarHabitad")
     public String agregarHabitad(@WebParam(name = "jsonHabitad") String jsonHabitad) {
         //TODO write your implementation code here:
         JsonObject habitadj = Json.createReader(new StringReader(jsonHabitad)).readObject();
         Habitad habitad = new Habitad(habitadj);
-        crudHabitad cHabitad = new crudHabitad();
+        
         try {
             cHabitad.insertarHabitad(habitad);
         } catch (Exception e) {
@@ -196,9 +197,35 @@ public class Webservicezoo {
      * Web service operation
      */
     @WebMethod(operationName = "eliminarRevision")
-    public String eliminarRevision(@WebParam(name = "id") String id) {
+    public String eliminarRevision(@WebParam(name = "Id") String id) {
         //TODO write your implementation code here:
         return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "consultarHabitads")
+    public String consultarHabitads() {
+        //TODO write your implementation code here:
+         
+         ArrayList<Habitad> alHabitads= new ArrayList<Habitad>();
+       try{   
+            ResultSet rsHabitads = cHabitad.Habitad();
+        while(rsHabitads.next()){
+            String habitadstring="{\"Id\":\""+rsHabitads.getString("id")+
+                                   "\",\"Descripcion\":\""+rsHabitads.getString("descripcion")+
+                                    "\",\"Clima\":\""+rsHabitads.getString("clima")+
+                                    "\",\"Dimension\":\""+rsHabitads.getFloat("dimension")+"\"}";
+            JsonObject habitadsjson =Json.createReader(new StringReader(habitadstring)).readObject();
+            alHabitads.add(new Habitad(habitadsjson));
+        }
+       }catch(Exception e){
+           
+       }
+       Gson gson = new Gson();
+       String formatoJSON = gson.toJson(alHabitads);
+        return formatoJSON;
     }
 
 }

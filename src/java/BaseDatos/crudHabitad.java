@@ -5,6 +5,7 @@
  */
 package BaseDatos;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -14,7 +15,7 @@ import java.sql.SQLException;
 public class crudHabitad extends Conexion{
     public void insertarHabitad(Habitad habitad){
         conexionbd();
-        String query ="call zoologico.insertarHabitad('"+habitad.getId()+"', '"+habitad.getDescripcion()+"', '"+habitad.getClima()+"', "+habitad.getDimencion()+");";
+        String query ="call zoologico.insertarHabitad('"+habitad.getId()+"', '"+habitad.getDescripcion()+"', '"+habitad.getClima()+"', "+habitad.getDimension()+");";
         try {
             sentencia.execute(query);
         } catch (SQLException ex) {
@@ -28,5 +29,15 @@ public class crudHabitad extends Conexion{
             sentencia.execute(query);
         } catch (Exception e) {
         }
+    }
+    public ResultSet Habitad(){
+        conexionbd();
+       try{
+            String query = "select * from habitad;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
     }
 }
