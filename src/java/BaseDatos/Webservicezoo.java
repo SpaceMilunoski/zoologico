@@ -11,8 +11,6 @@ import javax.jws.WebParam;
 //import com.google.gson.Gson;
 import BaseDatos.*;
 import java.io.StringReader;
-
-
 import java.lang.reflect.Type;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -29,14 +27,7 @@ import jdk.nashorn.internal.parser.JSONParser;
  */
 @WebService(serviceName = "Webservicezoo")
 public class Webservicezoo {
-
-    /**
-     * This is a sample web service operation
-     */
-    
-    /**
-     * Web service operation
-     */
+    //////////////////////////////////////////////////////////////////////////////////////////////
     CrudCuidadores crud = new CrudCuidadores();
     @WebMethod(operationName = "IngresarCuidadores")
     public String IngresarCuidadores(@WebParam(name = "jsonCuidadores") String jsonCuidadores) {        
@@ -48,13 +39,8 @@ public class Webservicezoo {
         } catch (Exception e) {
             return null;
         }
-        //TODO write your implementation code here:
-        //return null;
     }
 
-    /**
-     * Web service operation
-     */
     @WebMethod(operationName = "eliminarCuidadores")
     public String eliminarCuidadores(@WebParam(name = "Id") String Id) {
         //TODO write your implementation code here:
@@ -64,12 +50,8 @@ public class Webservicezoo {
         } catch (Exception e) {
             return null;
         }
-        
     }
-
-    /**
-     * Web service operation
-     */
+    //////////////////////////////////////////////////////////////////////////////////////////////
     crudHabitad cHabitad = new crudHabitad();
     @WebMethod(operationName = "agregarHabitad")
     public String agregarHabitad(@WebParam(name = "jsonHabitad") String jsonHabitad) {
@@ -83,14 +65,10 @@ public class Webservicezoo {
         }
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    //////////////////////////////////////////////////////////////////////////////////////////////
     crudPrestados_Permanentes cpp = new crudPrestados_Permanentes();
     @WebMethod(operationName = "Prestados")
     public String Prestados(@WebParam(name = "jPrestados") String jPrestados) {
-        //TODO write your implementation code here:
         JsonObject jprestados = Json.createReader(new StringReader(jPrestados)).readObject();
         animalesPrestados prestados = new animalesPrestados(jprestados);
         try {
@@ -100,24 +78,18 @@ public class Webservicezoo {
         return null;
     }
 
-    /**
-     * Web service operation
-     */
     @WebMethod(operationName = "Permanentes")
     public String Permanentes(@WebParam(name = "jPermanentes") String jPermanentes) {
-        //TODO write your implementation code here:
-          JsonObject jpermanentes = Json.createReader(new StringReader(jPermanentes)).readObject();
+        JsonObject jpermanentes = Json.createReader(new StringReader(jPermanentes)).readObject();
         animalesPermanentes permanentes = new animalesPermanentes(jpermanentes);
         try {
             cpp.insertarPermanentes(permanentes);
         } catch (Exception e) {
+        
         }
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "eliminarPermanetes")
     public String eliminarPermanetes(@WebParam(name = "Id") String Id) {
         //TODO write your implementation code here:
@@ -127,10 +99,7 @@ public class Webservicezoo {
         }
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "eliminarPrestados")
     public String eliminarPrestados(@WebParam(name = "Id") String Id) {
         //TODO write your implementation code here:
@@ -140,92 +109,69 @@ public class Webservicezoo {
         }
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    CrudCuidadores ccuida = new CrudCuidadores();
     @WebMethod(operationName = "agregarCuida")
-    public String agregarCuida(@WebParam(name = "jCuida") String jCuida) {
+    public String agregarCuida(@WebParam(name = "jCuidadores") String jCuidadores) {
         //TODO write your implementation code here:
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "eliminarCuida")
     public String eliminarCuida(@WebParam(name = "Id") String Id) {
         //TODO write your implementation code here:
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "consultaCuidadores")
     public String consultaCuidadores() {
-        //TODO write your implementation code here:
         ResultSet rsCuidadores;
-         ArrayList<Cuidadores> alCuidadores= new ArrayList<Cuidadores>();
-       try{
+        ArrayList<Cuidadores> alCuidadores= new ArrayList<Cuidadores>();
+        try{
             rsCuidadores = crud.Cuidadores();
-       
-        while(rsCuidadores.next()){
-            String cuidadorstring="{\"Id\":\""+rsCuidadores.getString("id")+"\",\"Nombre\":\""+rsCuidadores.getString("nombre")+"\",\"Apellidos\":\""+rsCuidadores.getString("apellidos")+"\",\"Nacionalidad\":\""+rsCuidadores.getString("nacionalidad")+"\",\"Telefono\":\""+rsCuidadores.getString("telefono")+"\",\"Estatus\":\""+rsCuidadores.getString("estatus")+"\",\"Fecha_ingreso\":\""+rsCuidadores.getString("fecha_ingreso")+"\"}";
-            JsonObject cuidadorjson =Json.createReader(new StringReader(cuidadorstring)).readObject();
-            alCuidadores.add(new Cuidadores(cuidadorjson));
-        }
-       }catch(Exception e){
+            while(rsCuidadores.next()){
+                String cuidadorstring="{\"Id\":\""+rsCuidadores.getString("id")+"\",\"Nombre\":\""+rsCuidadores.getString("nombre")+"\",\"Apellidos\":\""+rsCuidadores.getString("apellidos")+"\",\"Nacionalidad\":\""+rsCuidadores.getString("nacionalidad")+"\",\"Telefono\":\""+rsCuidadores.getString("telefono")+"\",\"Estatus\":\""+rsCuidadores.getString("estatus")+"\",\"Fecha_ingreso\":\""+rsCuidadores.getString("fecha_ingreso")+"\"}";
+                JsonObject cuidadorjson =Json.createReader(new StringReader(cuidadorstring)).readObject();
+                alCuidadores.add(new Cuidadores(cuidadorjson));
+            }
+        }catch(Exception e){
            
-       }
-       Gson gson = new Gson();
-       String formatoJSON = gson.toJson(alCuidadores);
-      
-      return formatoJSON;
+        }
+        Gson gson = new Gson();
+        String formatoJSON = gson.toJson(alCuidadores);
+        return formatoJSON;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "agregarRevisiones")
     public String agregarRevisiones(@WebParam(name = "revisionesj") String revisionesj) {
         //TODO write your implementation code here:
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "eliminarRevision")
     public String eliminarRevision(@WebParam(name = "Id") String id) {
         //TODO write your implementation code here:
         return null;
     }
-
-    /**
-     * Web service operation
-     */
+    
     @WebMethod(operationName = "consultarHabitads")
     public String consultarHabitads() {
-        //TODO write your implementation code here:
-         
-         ArrayList<Habitad> alHabitads= new ArrayList<Habitad>();
-       try{   
+        ArrayList<Habitad> alHabitads= new ArrayList<Habitad>();
+        try{   
             ResultSet rsHabitads = cHabitad.Habitad();
-        while(rsHabitads.next()){
+            while(rsHabitads.next()){
             String habitadstring="{\"Id\":\""+rsHabitads.getString("id")+
                                    "\",\"Descripcion\":\""+rsHabitads.getString("descripcion")+
                                     "\",\"Clima\":\""+rsHabitads.getString("clima")+
                                     "\",\"Dimension\":\""+rsHabitads.getFloat("dimension")+"\"}";
-            JsonObject habitadsjson =Json.createReader(new StringReader(habitadstring)).readObject();
-            alHabitads.add(new Habitad(habitadsjson));
-        }
-       }catch(Exception e){
+                JsonObject habitadsjson =Json.createReader(new StringReader(habitadstring)).readObject();
+                alHabitads.add(new Habitad(habitadsjson));
+            }
+        }catch(Exception e){
            
-       }
-       Gson gson = new Gson();
-       String formatoJSON = gson.toJson(alHabitads);
+        }
+        Gson gson = new Gson();
+        String formatoJSON = gson.toJson(alHabitads);
         return formatoJSON;
     }
-
 }
