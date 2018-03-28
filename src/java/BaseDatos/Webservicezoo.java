@@ -179,19 +179,67 @@ public class Webservicezoo {
     /**
      * Web service operation
      */
+    CrudAnimales cAnimales = new CrudAnimales();
     @WebMethod(operationName = "consultarAnimales")
     public String consultarAnimales() {
         //TODO write your implementation code here:
-        return null;
+        ArrayList<Animales> alAnimales= new ArrayList<Animales>();
+        try{   
+            ResultSet rsAnimales = cAnimales.Animales();
+            while(rsAnimales.next()){
+            String animalestring="{\"Id\":"+rsAnimales.getInt("id")+
+                                   ",\"Animal\":\""+rsAnimales.getString("nombre")+
+                                    "\",\"Especie\":\""+rsAnimales.getString("especie")+
+                                    "\",\"Pais_origen\":\""+rsAnimales.getString("pais_origen")+
+                                    "\",\"Estatus\":\""+rsAnimales.getString("estatus")+
+                                    "\",\"Peso\":\""+rsAnimales.getFloat("peso")+
+                                    "\",\"Altura\":\""+rsAnimales.getFloat("altura")+
+                                    "\",\"Dieta\":\""+rsAnimales.getString("dieta")+
+                                    "\",\"Sexo\":\""+rsAnimales.getString("sexo")+
+                                    "\",\"Nivel_riesgo\":\""+rsAnimales.getString("nivel_riesgo")+
+                                    "\",\"Id_habitad\":\""+rsAnimales.getString("id_habitad")+
+                                    "\",\"Pres_prop\":\""+rsAnimales.getString("pres_prop")+"\"}";
+                JsonObject animalesjson =Json.createReader(new StringReader(animalestring)).readObject();
+                alAnimales.add(new Animales(animalesjson));
+            }
+        }catch(Exception e){
+          
+        }
+        Gson gson = new Gson();
+        String formatoJSON = gson.toJson(alAnimales);
+        return formatoJSON;
     }
 
     /**
      * Web service operation
      */
+    CrudRevisiones cRevisiones = new CrudRevisiones();
     @WebMethod(operationName = "consultarRevisiones")
     public String consultarRevisiones() {
         //TODO write your implementation code here:
-        return null;
+        ArrayList<Revisiones> alRevisiones= new ArrayList<Revisiones>();
+        try{   
+            ResultSet rsRevisiones = cRevisiones.Revisiones();
+            while(rsRevisiones.next()){
+            String revisionestring="{\"Id\":"+rsRevisiones.getInt("id")+
+                                   ",\"Descripcion\":\""+rsRevisiones.getString("descripcion")+
+                                    "\",\"FechaIngreso\":\""+rsRevisiones.getString("fecha_ingreso")+
+                                    "\",\"FechaSalida\":\""+rsRevisiones.getString("fecha_salida")+
+                                    "\",\"Tratamiento\":\""+rsRevisiones.getString("tratamiento")+
+                                    "\",\"Observaciones\":\""+rsRevisiones.getString("observaciones")+
+                                    "\",\"Estatus\":\""+rsRevisiones.getString("estatus")+
+                                    "\",\"IdAnimal\":"+rsRevisiones.getInt("id_animal")+
+                                    ",\"Conectrado\":"+rsRevisiones.getInt("concentrado")+               
+                                    ",\"IdVeterinario\":"+rsRevisiones.getInt("id_veterinario")+"}";
+                JsonObject revisionesjson =Json.createReader(new StringReader(revisionestring)).readObject();
+                alRevisiones.add(new Revisiones(revisionesjson));
+            }
+        }catch(Exception e){
+           
+        }
+        Gson gson = new Gson();
+        String formatoJSON = gson.toJson(alRevisiones);
+        return formatoJSON;
     }
 
     /**

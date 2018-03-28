@@ -19,7 +19,7 @@ public class Revisiones {
     String observaciones;
     String estatus;
     int id_animal;
-    String concentrado;
+    int concentrado;
     int id_veterinario;
     
     public Revisiones(JsonObject revision){
@@ -31,7 +31,7 @@ public class Revisiones {
         this.observaciones=revision.getString("Observaciones");
         this.estatus=revision.getString("Estatus");
         this.id_animal=revision.getInt("IdAnimal");
-        this.concentrado=revision.getString("Conectrado");
+        this.concentrado=revision.getInt("Conectrado");
         this.id_veterinario=revision.getInt("IdVeterinario");
     }
     //-------------------------------------
@@ -91,10 +91,10 @@ public class Revisiones {
         this.id_animal = id_animal;
     }
     //-------------------------------------
-    public String getConcentrado(){
+    public int getConcentrado(){
         return concentrado;
     }
-    public void setConcentrado(String concentrado){
+    public void setConcentrado(int concentrado){
         this.concentrado = concentrado;
     }
     //-------------------------------------

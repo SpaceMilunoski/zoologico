@@ -22,8 +22,8 @@ public class Animales {
     String dieta;
     String sexo;
     String nivel_riesgo;
-    int id_habitad;
-    int pres_prop;
+    String id_habitad;
+    String pres_prop;
     
     public Animales(JsonObject animal){
         this.id = animal.getInt("Id");
@@ -31,13 +31,13 @@ public class Animales {
         this.especie = animal.getString("Especie");
         this.pais_origen = animal.getString("Pais_origen");
         this.estatus = animal.getString("Estatus");
-        this.peso = animal.getInt("Peso");
-        this.altura = animal.getInt("Altura");
+        this.peso = Float.parseFloat(animal.getString("Peso"));
+        this.altura = Float.parseFloat(animal.getString("Altura"));
         this.dieta = animal.getString("Dieta");
         this.sexo = animal.getString("Sexo");
         this.nivel_riesgo = animal.getString("Nivel_riesgo");
-        this.id_habitad = animal.getInt("Id_habitad");
-        this.pres_prop = animal.getInt("Pres_prop");
+        this.id_habitad = animal.getString("Id_habitad");
+        this.pres_prop = animal.getString("Pres_prop");
     }
     
     public int getId(){
@@ -110,17 +110,17 @@ public class Animales {
         this.nivel_riesgo = nivel_riesgo;
     }
     //-------------------------------------
-    public int getIDHabitad(){
+    public String getIDHabitad(){
         return id_habitad;
     }
-    public void setIDHabitad(int id_habitad){
+    public void setIDHabitad(String id_habitad){
         this.id_habitad = id_habitad;
     }
     //-------------------------------------
-    public int getPresProp(){
+    public String getPresProp(){
         return pres_prop;
     }
-    public void setPresProp(int pres_prop){
+    public void setPresProp(String pres_prop){
         this.pres_prop = pres_prop;
     }
 }

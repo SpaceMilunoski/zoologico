@@ -25,7 +25,7 @@ public class CrudAnimales extends Conexion{
    public ResultSet Animales(){
         conexionbd();
        try{
-            String query = "select * from animales;";
+            String query = "SELECT * FROM animales;";
         resultado = sentencia.executeQuery(query);
        }catch(Exception e){
            resultado =null;
