@@ -47,4 +47,14 @@ public class CrudCuidadores extends Conexion{
        }
         return resultado;
     }
+    public ResultSet Cuidado(){
+        conexionbd();
+       try{
+            String query = "select * from cuida;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
+    }
 }

@@ -5,6 +5,8 @@
  */
 package BaseDatos;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Miguel Angel
@@ -20,15 +22,16 @@ public class CrudAnimales extends Conexion{
         }
     }
     
-   public void consultarAnilames (Animales animal){//CONSULTAR ANIMALES
+   public ResultSet Animales(){
+        conexionbd();
        try{
-            conexionbd();
-            String cosultar ="select *from animales;";
-            sentencia.execute(cosultar);
-        }catch(Exception e){
-            
-        }
-   }
+            String query = "select * from animales;";
+        resultado = sentencia.executeQuery(query);
+       }catch(Exception e){
+           resultado =null;
+       }
+        return resultado;
+    }
    
    public void asignarHabitad(Animales animal){
        try{
